@@ -4,10 +4,10 @@ const Filter = () => {
   // DO NOT CHANGE THE ORDER of the category filters: ie. Sneakers, Loafers, Canvas, Boots
   //in the UI
   return (
-    <div>
+    <div style={{width:"300px"}}>
       <h3>Filters</h3>
       <div>Category</div>
-      <div data-testid="filter-category">
+      <div data-testid="filter-category" >
         <div>
           <input type="checkbox" value="Sneakers" />
           <label>Sneakers</label>

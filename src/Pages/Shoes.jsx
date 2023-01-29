@@ -6,6 +6,7 @@ import {
   shoesDataRequest,
   shoesDataSuccess,
 } from "../Redux/AppReducer/action";
+import ShoeCard from "../Components/ShoeCard";
 
 const Shoes = () => {
   const dispatch = useDispatch();
@@ -22,19 +23,19 @@ const Shoes = () => {
       });
   }, []);
 
-  console.log(data.isLoading);
-
   return (
-    <div>
+    <div style={{ display: "flex", gap: "150px" }}>
       <Filter />
-      <div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "30px" }}>
         {
           /* Map through the shoes list here using ShoeCard Component */
 
           data.isLoading ? (
             <div>Loading</div>
           ) : (
-            data.shoes.map((ele) => console.log(ele))
+            data.shoes.map((ele) => (
+              <ShoeCard shoeId={ele.id} shoeData={ele} key={ele.id} />
+            ))
           )
         }
       </div>

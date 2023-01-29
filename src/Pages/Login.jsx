@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { loginFailure, loginRequest, loginSuccess } from "../Redux/AuthReducer/action";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const dispatch = useDispatch();
+  const navigate=useNavigate();
   
 
   const handleLogin = (e) => {
@@ -21,6 +23,7 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(loginSuccess(data.token));
+        navigate('/')
       })
       .catch((error) => {
         console.error("Error:", error);
